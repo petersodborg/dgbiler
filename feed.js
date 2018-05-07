@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-$('#action-button').click(function() {
+//$('#action-button').click(function() {
    $.ajax({
       url: 'https://services.web.bilinfo.dk/api/vehicle/?user=demo&password=ocfB6XzF73&format=json',
       type: 'GET',
@@ -12,20 +12,30 @@ $('#action-button').click(function() {
          $('#info').html('<p>An error has occurred</p>');
       },
       success: function(data) {
+/*
+$.each(json, function () {
+   $.each(this, function (name, value) {
+      console.log(name + '=' + value);
+   });
+});
 
-    $.each(data.Vehicles, function(index, item) {
+*/
+
+
+  $.each(data.Vehicles, function (index, item) {
+
     $(".col-md-4")
     .append('<img src= "' + item.Pictures[0] + '" height="200" width="373">')
-    .append("<h5>" + item.Model + item.Make + "</h5>")
-    .append("<p>" + item.KmPerLiter + "Km/l" + " "+ item.Variant + "</p>")
-    .append("<p> LEASING(incl service):" + item.Mileage + "</p>")
-    //.append(".button" + item.RetailPrice);
+    .append("<div class='myDiv'>" + item.Model + item.Make + "</div>")
+    .append("<div class='myDiv'>" + item.KmPerLiter + "Km/l" + " "+ item.Variant + "<p> LEASING(incl service):" + item.Mileage + "</p>" +"</div>")
+    .append()
+    .append("<button type='button' class='btn btn-danger'>" + item.RetailPrice + "</button>");
 
 }); 
 
       }
    });//slut ajax
-});//slut action
+//});//slut action
 });//slut document
 
         //var i = 0;

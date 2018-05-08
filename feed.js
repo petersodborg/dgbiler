@@ -24,12 +24,14 @@ $.each(json, function () {
 
   $.each(data.Vehicles, function (index, item) {
 
-    $(".col-md-4")
-    .append('<img src= "' + item.Pictures[0] + '" height="200" width="373">')
-    .append("<div class='myDiv'>" + item.Model + item.Make + "</div>")
-    .append("<div class='myDiv'>" + item.KmPerLiter + "Km/l" + " "+ item.Variant + "<p> LEASING(incl service):" + item.Mileage + "</p>" +"</div>")
-    .append()
-    .append("<button type='button' class='btn btn-danger'>" + item.RetailPrice + "</button>");
+    $(".bil-container")
+    .append("<div class='col-md-4'>"
+      + '<img src= "' + item.Pictures[0] + '" height="232" width="436">' +
+      "<div class='info'>" + "<h5>" + item.Model + " " + item.Make + "</h5>"
+      + item.KmPerLiter + "Km/l" + " "+ item.Variant + "<br>" + "<br>" + 
+      "<p> LEASING(incl service):" + item.Mileage + "</p>"  +
+      "<div class='btn-container'>" + "<button type='button' class='btn btn-danger'>" + item.RetailPrice + "</button>" + "</div>" +"</div>");
+
 
 }); 
 

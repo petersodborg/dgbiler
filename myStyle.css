@@ -9,7 +9,7 @@ body {
 .col-md-4{
 	margin-left:0px;
 	background-color:white;
-	padding-left:25px;
+	padding-left:15px;
 	padding-top:25px;
 	margin-top:25px;
 }
@@ -98,7 +98,7 @@ margin-left:40%;
 /*********SEARCH FORM*********/
 .card{
 		background-color:#545051;
-		width:85%;
+		width:100%;
 
 }
 .card-header{
@@ -184,4 +184,85 @@ td.prisetc{
 
 
 
+/* JNP Overwrite */
+.container {
+	max-width: 1500px;
+}
+.card {
+	margin: auto;
+}
+select.form-control {
+	border-radius: 0;
+}
 
+html body .btn-danger {
+    background: #a71c21;
+    padding: 8px 20px;
+    float: right;
+    color: white;
+    font-weight: bold;
+    width: auto;
+    font-size: 20px;
+    right: 0;
+	position: relative;
+	border-radius: 0;
+}
+
+html body .btn-danger:hover {
+
+    background: #a71c21;	
+}
+
+#search-form input {
+	border-radius: 0;
+	
+	height: 56px;
+	text-indent: 5px;
+	font-size: 16px;
+	padding: 5px;
+}
+
+
+.card-footer p {
+
+	margin-bottom: 0;
+    padding-top: 9px;
+}
+
+.bil-container a {
+	background: #f4f5f7;
+	max-width: 100%;
+	display: inline-block;
+	
+	color: #0a0a0a;
+}
+
+
+.bil-container a:hover {
+	color: #90181c;
+}
+
+.bil-container a:hover .car-body p {
+
+	
+	color: #0a0a0a;	
+}
+
+.car-body {
+	margin-top: 15px;
+}
+
+.bil-container a p {
+	margin-bottom: 0;
+	font-size: 15px;
+}
+
+.bil-container a h5 {
+    font-weight: bold;
+    margin: 0;
+    overflow: hidden;
+    text-align: left;
+    white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size: 20px;
+}

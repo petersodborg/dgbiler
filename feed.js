@@ -20,15 +20,19 @@ $.each(json, function () {
 });
 
 */
-  $.each(data.Vehicles, function (index, item) {
+  carTotal = data.Vehicles.length;
 
+
+  $(".car-total").append(carTotal + " Søgeresultater");
+
+  $.each(data.Vehicles, function (index, item) {
     $(".bil-container")
     .append("<div class='col-md-4'>"
       + '<img src= "' + item.Pictures[0] + '" height="232" width="436">' +
-      "<div class='info'>" + "<h5>" + item.Model + " " + item.Make + "</h5>"
-      + item.KmPerLiter + "Km/l" + " "+ item.Variant + "<br>" + "<br>" + 
-      "<p> LEASING(incl service):" + item.Mileage + "</p>"  +
-      "<div class='btn-container'>" + "<button type='button' class='btn btn-danger'>" + item.RetailPrice + "</button>" + "</div>" +"</div>");
+      "<a href='' class=''><div class='info'>" + "<h5>" + item.Model + " " + item.Make + "</h5>"
+      + "<p>" + item.KmPerLiter + "Km/l" + " "+ item.Variant + "</p>" + 
+      "<div class='car-body'><p> LEASING(incl service):" + item.Mileage + "</p></div></div>"  +
+      "<div class='btn-container'>" + "<button type='button' class='btn btn-danger'>" + item.RetailPrice + " kr." + "</button>" + "</div>" +"</div>");
 
 
 }); 

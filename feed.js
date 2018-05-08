@@ -1,43 +1,37 @@
 
 $(document).ready(function(){
 //$('#action-button').click(function() {
-   $.ajax({
-      url: 'https://services.web.bilinfo.dk/api/vehicle/?user=demo&password=ocfB6XzF73&format=json',
-      type: 'GET',
-      data: {
-         format: 'JSON'
-      },
-      dataType: 'jsonp',
-      error: function() {
-         $('#info').html('<p>An error has occurred</p>');
-      },
-      success: function(data) {
-/*
-$.each(json, function () {
-   $.each(this, function (name, value) {
-      console.log(name + '=' + value);
-   });
-});
+  $.ajax({
+    url: 'http://dgbiler.dev5.mediastyle.dk/socket.io',
+    type: 'GET',
+    contentType: 'application/json; charset=utf-8',
+    data: {
+       format: 'JSON'
+    },
+    dataType: 'json',
+    error: function() {
+       $('#info').html('<p>An error has occurred</p>');
+    },
+    success: function(data) {
+       //console.log(data);
+       //var $all = $('<p>').text(data);
 
-*/
-  carTotal = data.Vehicles.length;
+       carTotal = data.length;
 
 
-  $(".car-total").append(carTotal + " Søgeresultater");
+       $(".car-total").append(carTotal + " Søgeresultater");
+        $.each(data, function(i, data){
 
-  $.each(data.Vehicles, function (index, item) {
-    $(".bil-container")
-    .append("<div class='col-md-4'>"
-      + '<img src= "' + item.Pictures[0] + '" height="232" width="436">' +
-      "<a href='' class=''><div class='info'>" + "<h5>" + item.Model + " " + item.Make + "</h5>"
-      + "<p>" + item.KmPerLiter + "Km/l" + " "+ item.Variant + "</p>" + 
-      "<div class='car-body'><p> LEASING(incl service):" + item.Mileage + "</p></div></div>"  +
-      "<div class='btn-container'>" + "<button type='button' class='btn btn-danger'>" + item.RetailPrice + " kr." + "</button>" + "</div>" +"</div>");
-
-
-}); 
-
-      }
+console.log(data);
+$(".bil-container")
+  .append("<div class='col-md-4'>"
+  + '<img src= "' + data.Pictures + '" height="232" width="436">' +
+  "<a href='' class=''><div class='info'>" + "<h5>" + data.Model + " " + data.Make + "</h5>"
+  + "<p>" + data.KmPerLiter + "Km/l" + " "+ data.Variant + "</p>" + 
+  "<div class='car-body'><p> LEASING(incl service):" + data.Mileage + "</p></div></div>"  +
+  "<div class='btn-container'>" + "<button type='button' class='btn btn-danger'>" + data.RetailPrice + " kr." + "</button>" + "</div>" +"</div>");
+        })
+    },
    });//slut ajax
 //});//slut action
 });//slut document

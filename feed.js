@@ -20,8 +20,6 @@ $.each(json, function () {
 });
 
 */
-
-
   $.each(data.Vehicles, function (index, item) {
 
     $(".bil-container")

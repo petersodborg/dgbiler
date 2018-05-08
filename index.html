@@ -2,7 +2,7 @@
 <html>
  <head>
  <meta charset="utf-8">
- <title>jQuery.ajax()</title>
+ <title>Daugaard Biler</title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
      <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -15,11 +15,130 @@
    <!--Div til error handling-->
 </div>
 <!-- bootstrap start -->
-<div class="container-fluid">
+<div class="container">
+  <div class="col-md-12">
+
+    <div class="card">
+        <h5 class="card-header">
+        </h5>
+        <div class="card-body">
+ <div class="row" id="search">
+    <form id="search-form" action="" method="POST" enctype="multipart/form-data">
+      <div class="form-group col-xs-12">
+        <input class="form-control" type="text" placeholder="Søg bil" />
+      </div>
+
+    </form>
+  </div>
+  <div class="row" id="filter">
+    <form>
+      <div class="form-group col-sm-2 col-xs-6">
+         <p class="search">Kategori</p>
+        <select data-filter="make" class="filter-make filter form-control">
+          <option value=""></option>
+          <option value="">Personvogn - Benzin</option>
+          <option value="">Personvogn - Diezel</option>
+          <option value="">Varevogn + Moms</option>
+
+        </select>
+      </div>
+      <div class="form-group col-sm-2 col-xs-6">
+         <p class="search">Type</p>
+        <select data-filter="model" class="filter-model filter form-control">
+          <option value="">Select Model</option>
+          <option value=""></option>
+        </select>
+      </div>
+      <div class="form-group col-sm-2 col-xs-6">
+         <p class="search">Mærke</p>
+        <select data-filter="type" class="filter-type filter form-control">
+          <option value=""></option>
+          <option value="">Show All</option>
+        </select>
+      </div>
+      <div class="form-group col-sm-2 col-xs-6">
+         <p class="search">Model</p>
+        <select data-filter="price" class="filter-price filter form-control">
+          <option value=""></option>
+          <option value="">Show All</option>
+        </select>
+      </div>
+
+            <div class="form-group col-sm-1 col-xs-6">
+         <p class="search">Pris</p>
+        <select data-filter="price" class="filter-price filter form-control">
+          <option value="">Fra</option>
+          <option value=""></option>
+        </select>
+      </div>
+      <div class="form-group col-sm-1 col-xs-6">
+         <p class="search">Årgang</p>
+        <select data-filter="price" class="filter-price filter form-control">
+          <option value="">Til</option>
+          <option value=""></option>
+        </select>
+      </div>
+
+
+            <div class="form-group col-sm-1 col-xs-6">
+         <p class="search">Årgang</p>
+        <select data-filter="price" class="filter-price filter form-control">
+          <option value="">Fra</option>
+          <option value=""></option>
+        </select>
+      </div>
+      <div class="form-group col-sm-1 col-xs-6">
+         <p class="search">Årgang</p>
+        <select data-filter="price" class="filter-price filter form-control">
+          <option value="">Til</option>
+          <option value=""></option>
+        </select>
+      </div>
+    </form>
+  </div>
+
+
+        </div>
+        <div class="card-footer">
+          <p>Kilometer ^ Årgang ^ Pris ^ </p>
+        </div>
+      </div>
+
+
+
+
+    </div>
   <div class="row">
 <div class="bil-container">
 
   </div>
+  <div class="col-md-12">
+      <nav>
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#">Forrige</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">4</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">5</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">Næste</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 </div>
 </div>
 <!-- bootstrap slut-->

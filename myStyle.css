@@ -1,9 +1,17 @@
+body {
+    font-family: "Open Sans",sans-serif;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #0a0a0a;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .col-md-4{
 	margin-left:0px;
 	background-color:white;
-	padding-left:100px;
-	padding-top:10px;
-	margin-top:100px;
+	padding-left:25px;
+	padding-top:25px;
+	margin-top:25px;
 }
 h5 {
 font-weight: bold;
@@ -14,6 +22,25 @@ white-space: nowrap;
 }
 p {
 	font-size: 15px;
+}
+
+p.search {
+    color: white;
+    font-weight: bold;
+}
+p.car {
+	margin-bottom: 1rem;
+	font-size: inherit;
+	line-height: 1.6;
+	text-rendering: optimizeLegibility;
+	color:white;
+}
+h5.car{
+	font-weight: bold;
+	color:white;
+}
+h2.car{
+	font-weight: bold;
 }
 
 .btn-danger{
@@ -38,8 +65,9 @@ position: relative;
 	width:374px;
 }
 .bil-container{
-	width:auto;
-	height:auto;
+	width:1500px;
+	height:inherit;
+	margin:auto 0;
 }
 
 .car-display {
@@ -59,3 +87,101 @@ position: relative;
 	padding-right:0px;
 	margin-top:10px;
 }
+.pagination{
+margin-left:40%;
+}
+.jumbotron{
+	background-color:#545051;
+	width:85%;
+}
+
+/*********SEARCH FORM*********/
+.card{
+		background-color:#545051;
+		width:85%;
+
+}
+.card-header{
+	height:50px;
+}
+.card-body{
+	height:200px;
+			padding:20px 100px 30px 100px;
+
+}
+.card-footer{
+	background-color:black;
+	height:40px;
+	color:white;
+	padding-left: 100px
+}
+
+
+.form-control mr-sm-2 {
+
+}
+
+.sub-filter-bar {
+float: left;
+width: 100%;
+display: block;
+background: #292325;
+padding: 10px 50px;
+box-sizing: inherit;
+}
+
+.search-item {
+	width:500px;
+	height:65px;
+}
+
+/***********TABLE CAR SITE*********/
+.page-header{
+	margin-left:175px;
+}
+
+.table td {
+  width: 100%;
+}
+
+.table{
+	background-color:#292325;
+	color:#bebcbd;
+	width:75%;
+	float:right;
+	margin-bottom:0px;
+}
+.card-car{
+		background-color:#a71c21;
+		width:75%;
+		float:right;
+
+
+}
+.card-header-car{
+	height:0px;
+}
+.card-body-car{
+	height:200px;
+			padding:0px 100px 30px 10px;
+			text-align: left;
+
+}
+.card-footer-car{
+
+}
+td.prisetc{
+	font-weight:bold;
+	color:white;
+	margin-right:122px;
+}
+.col-md-8{
+	float: right;
+	width:75%;
+	text-align:center;
+	color:#a71c21;
+}
+
+
+
+

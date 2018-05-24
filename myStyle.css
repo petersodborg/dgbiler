@@ -28,6 +28,10 @@ p.search {
     color: white;
     font-weight: bold;
 }
+p.search2 {
+	color:#545051;
+    font-weight: bold;
+}
 p.car {
 	margin-bottom: 1rem;
 	font-size: inherit;
@@ -275,3 +279,15 @@ html body .btn-danger:hover {
 	text-overflow: ellipsis;
 	font-size: 20px;
 }
+.imageContainer{
+	width:232;
+	width:436;
+}
+.one-car-container{
+	width:auto;
+	height:auto;
+}
+.temporary-fix {
+	color:#545051;
+}
+

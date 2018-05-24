@@ -4,9 +4,11 @@
  <meta charset="utf-8">
  <title>Daugaard Biler</title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
         <link href="mystyle.css" rel="stylesheet">
+        <link href="sol.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.css" rel="stylesheet">
 
   </head>
 
@@ -16,6 +18,7 @@
 </div>
 <!-- bootstrap start -->
 <div class="container">
+
 <div class="row">
   <div class="col-md-12">
 
@@ -35,6 +38,7 @@
          <p class="search">Kategori</p>
         <select data-filter="make" class="filter-make filter form-control">
           <option value=""></option>
+          <option value="">Motorcykel</option>
           <option value="">Personvogn - Benzin</option>
           <option value="">Personvogn - Diezel</option>
           <option value="">Varevogn + Moms</option>
@@ -44,17 +48,59 @@
       <div class="form-group col-sm-2 col-xs-6">
          <p class="search">Type</p>
         <select data-filter="model" class="filter-model filter form-control">
+          <option value=""></option>
+          <option value="">4 X 4</option>
+          <option value="">AUT</option>
+          <option value="">CABRIOLET</option>
+          <option value="">COUPE</option>
+          <option value="">KASSEVOGN</option>
+          <option value="">LADVOGN</option>
+          <option value="">MELLEM</option>
+          <option value="">MPV</option>
+          <option value="">PICK UP</option>
+          <option value="">STATIONCAR</option>
+          <option value="">STOR</option>
+          <option value="">SUV</option>
+          <option value="">VAN</option>
           <option value="">Select Model</option>
           <option value=""></option>
         </select>
       </div>
       <div class="form-group col-sm-2 col-xs-6">
          <p class="search">Mærke</p>
-        <select data-filter="type" class="filter-type filter form-control">
+        <select data-filter="type" class="filter-type filter form-control" id="my-select" name="maerke">
           <option value=""></option>
-          <option value="">Show All</option>
+          <option value="AlFA ROMEO">ALFA ROMEO</option>
+          <option value="AUDI">AUDI</option>
+          <option value="BMW">BMW</option>
+          <option value="CHEVROLET">CHEVROLET</option>
+          <option value="CITROËN">CITROËN</option>
+          <option value="DS">DS</option>
+          <option value="FIAT">FIAT</option>
+          <option value="FORD">FORD</option>
+          <option value="HONDA">HONDA</option>
+          <option value="HYUNDAI">HYUNDAI</option>
+          <option value="IVECO">IVECO</option>
+          <option value="KIA">KIA</option>
+          <option value="LEXUS">LEXUS</option>
+          <option value="MAZDA">MAZDA</option>
+          <option value="MERCEDES">MERCEDES</option>
+          <option value="MINI">MINI</option>
+          <option value="MITSUBISHI">MITSUBISHI</option>
+          <option value="NISSAN">NISSAN</option>
+          <option value="OPEL">OPEL</option>
+          <option value="PEUGEOT">PEUGEOT</option>
+          <option value="PORSCHE">PORSCHE</option>
+          <option value="RENAULT">RENAULT</option>
+          <option value="SEAT">SEAT</option>
+          <option value="SKODA">SKODA</option>
+          <option value="SUZUKI">SUZUKI</option>
+          <option value="TOYOTA">TOYOTA</option>
+          <option value="VOLVO">VOLVO</option>
+          <option value="VW">VW</option>
         </select>
-      </div>
+      <input type='button' value='Seleted option' id='but_read'>      
+    </div>
       <div class="form-group col-sm-2 col-xs-6">
          <p class="search">Model</p>
         <select data-filter="price" class="filter-price filter form-control">
@@ -67,28 +113,28 @@
          <p class="search">Pris</p>
         <select data-filter="price" class="filter-price filter form-control">
           <option value="">Fra</option>
-          <option value=""></option>
+          <option value="">Til</option>
         </select>
       </div>
       <div class="form-group col-sm-1 col-xs-6">
-         <p class="search">Årgang</p>
+         <p class="search2">.</p>
         <select data-filter="price" class="filter-price filter form-control">
           <option value="">Til</option>
-          <option value=""></option>
+          <option value="" class="temporary-fix">Til</option>
         </select>
       </div>
 
 
             <div class="form-group col-sm-1 col-xs-6">
-         <p class="search">Årgang</p>
-        <select data-filter="price" class="filter-price filter form-control">
+         <p class="search" class="temporary-fix" class="temporary-fix">Årgang</p>
+        <select data-filter="price" class="filter-price filter form-control" class="temporary-fix">
           <option value="">Fra</option>
           <option value=""></option>
         </select>
       </div>
-      <div class="form-group col-sm-1 col-xs-6">
-         <p class="search">Årgang</p>
-        <select data-filter="price" class="filter-price filter form-control">
+      <div class="form-group col-sm-1 col-xs-5">
+         <p class="search2">.</p>
+        <select data-filter="price" class="filter-price filter form-control" >
           <option value="">Til</option>
           <option value=""></option>
         </select>
@@ -108,8 +154,9 @@
 
     </div>
 </div>
-  <div class="row">
+  <div class="row1">
 <div class="bil-container">
+  <!--<div class="imageContainer"></div>-->
   <div class="car-total">
     
   </div>
@@ -151,7 +198,12 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
  <script src="feed.js"></script>
+ <script src="sol.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/i18n/af.js"></script>
+<script src="dist/pagination.js"></script>  <!--<script src="feed2.js"></script>-->
+
+
  </body>
 </html>

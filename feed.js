@@ -6,7 +6,7 @@ $(document).ready(function(){
     type: 'GET',
     contentType: 'application/json; charset=utf-8',
     data: {
-       format: 'JSON'
+       format: 'JSON',
     },
     dataType: 'json',
     error: function() {
@@ -16,92 +16,91 @@ $(document).ready(function(){
        //console.log(data);
        //var $all = $('<p>').text(data);
 
-       carTotal = data.length;
+    carTotal = data.length;
 
+    $(".car-total").append(carTotal + " Søgeresultater");
+    
+    //Søgning på tekst
+    $(".form-control").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".info *" ).filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 
-       $(".car-total").append(carTotal + " Søgeresultater");
-        $.each(data, function(i, data){
+  //SELECT BOX KATEGORI
+ $(function() {
 
-console.log(data);
-$(".bil-container")
+  // Read selected option
+  $('#but_read').click(function(){
+    var Make = $('#selUser option:selected').text();
+
+    $('#info').html("Make : " + option.selected);
+
+  });
+});  
+
+//bil liste
+  $.each(data, function(i, item){
+  $(".bil-container")
   .append("<div class='col-md-4'>"
-  + '<img src= "' + data.Pictures + '" height="232" width="436">' +
-  "<a href='' class=''><div class='info'>" + "<h5>" + data.Model + " " + data.Make + "</h5>"
-  + "<p>" + data.KmPerLiter + "Km/l" + " "+ data.Variant + "</p>" + 
+  + '<img src="' + item.Pictures[0] + '" height="232" width="436">' +
+  "<a href='biler.html?=index class=''><div class='info'>" + "<h5>" + item.Model + " " + item.Make + "</h5>"
+  + "<p>" + item.KmPerLiter + "Km/l" + " "+ item.Variant + "</p>" + 
   "<div class='car-body'><p> LEASING(incl service):" + data.Mileage + "</p></div></div>"  +
-  "<div class='btn-container'>" + "<button type='button' class='btn btn-danger'>" + data.RetailPrice + " kr." + "</button>" + "</div>" +"</div>");
-        })
+  "<div class='btn-container'>" + "<button type='button' class='btn btn-danger'>" + item.RetailPrice + " kr." + "</button>" + "</div>" +"</div>")
+        }),
+        
+
+  $.each(data, function(index, items){
+    console.log(index);
+    console.log(items);
+    console.log(items.Make);
+  $(".one-car-container")
+  .append("<div class='page-header'>" + "<h1>" 
+  + items.Make + "<h1>" + "</div>");
+})
+  /*
+    $.each(data, function(index, items){
+    console.log(index);
+    console.log(items);
+    console.log(items.Make);
+  $(".one-car-container")
+  .append("<div class='page-header'>" + "<h1>" 
+  + items.Make + "<h1>" + "</div>") + "<td class="prisetc">" + items.Mileage + "</td>";
+  + "<td class="prisetc">" + items.RegistrationDate + "</td>"; + "<td class="prisetc">" + items.Color + "</td>";
+  + "<td class"prisetc">" + items.KmPerLiter + "</td>"; + "<td class="prisetc">" + items.Edb + "</td>" 
+  */
+
+
+
+
     },
    });//slut ajax
+
+
 //});//slut action
 });//slut document
 
-        //var i = 0;
-        /*
-            $.each( data, function(index, d){
-              $('.col-md-4')
-              //.append('<img src= "' + data[1].Pictures + '">')
-            //.append("picture" + '<li><img src= "' + 'https://images.bilinfo.dk/images/44700008.jpg' + '"></li>')
-            .append("<h1> Model:" + d[0].Model + "</h1>")
-            .append("<h1> make:" + d[0].Make + "</h1>")
-            .append("<p> variant:" + d[0].Variant + "</p>")
-            .append("<p> registrationDate:" + d[0].RegistrationDate + "</p>");
-})
-*/
+$('#example').pagination({
 
+  ajax: function(options, refresh, $target){
+    $.ajax({
+      url: '',
+      data:{
+        current: options.current,
+        length: options.length
+      },
+      dataType: 'json'
+    }).done(function(res){
+      console.log(res.data);
+      refresh({
+        total: res.total, // optional
+        length: res.length // optional
+      });
+    }).fail(function(error){
 
-/*
-        $.each(data, function(i, data){
-          $('.col-md-4')
-            .append("<h1> Model:" + data[0].Model + "</h1>")
-            .append("<h1> make:" + data[0].Make + "</h1>")
-            .append("<p> variant:" + data[0].Variant + "</p>")
-            .append("<p> registrationDate:" + data[0].RegistrationDate + "</p>");
+    });
+  }
 
-*/
-         //console.log(data);
-         //var $all = $('<p>').text(data);
-//          $.each(data, function(i, data){
-  //          $('.col-md-4')
-    //        .append("<h1> Model:" + data.Model + "</h1>")
-      //      .append("<h1> make:" + data.Make + "</h1>")
-        //    .append("<p> variant:" + data.Variant + "</p>")
-          //  .append("<p> registrationDate:" + data.RegistrationDate + "</p>");
-            //.append("<li>" + data.Pictures + "</li>");
-
-
-
-/*
-<div class="row">
-    <?
-    $i = 0;
-    foreach ($cars as $car) {
-        ?>
-        Your code here
-        <?
-        $i++;
-        if ($i % 3 == 0) {
-            echo '</div><div class="row">';
-        }
-    }
-    ?>
-</div>
-*/
-
-         // for (var i=0; i<data.Object.length; i++) {
-         //var $make = $('<h1>').text(data.Object[i].Id);
-         // var $model = $('<h1>').text(data.Object[i].Model);
-
-         //var $pictures = $('<img src="">').text(data.Vehicles[i].Pictures);
-            //.append($all)
-            //.append($make)
-            // .append($model)
-            //.append($registrationDate)
-            //.append($variant)
-            //.append($pictures);
-
-           
-
-
-   //      var $title = $('<h1>').text(data.Vehicles[0].Id);
-     //    var $description = $('<p>').text(data.Vehicles[0].Model);
+});

@@ -2,7 +2,7 @@
 $(document).ready(function(){
 //$('#action-button').click(function() {
   $.ajax({
-    url: 'http://dgbiler.dev5.mediastyle.dk/socket.io',
+    url: 'http://dgbiler.dev5.mediastyle.dk/socket.io?Id=106602549',
     type: 'GET',
     contentType: 'application/json; charset=utf-8',
     data: {

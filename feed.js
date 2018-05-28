@@ -1,54 +1,57 @@
 
 $(document).ready(function(){
+      var $pagination = $('#pagination'),
+            totalRecords = 0,
+            records = [],
+            displayRecords = [],
+            recPerPage = 10,
+            page = 1,
+            totalPages = 0;
 //$('#action-button').click(function() {
-  $.ajax({
-    url: 'http://dgbiler.dev5.mediastyle.dk/socket.io',
-    type: 'GET',
-    contentType: 'application/json; charset=utf-8',
-    data: {
-       format: 'JSON',
-    },
-    dataType: 'json',
-    error: function() {
-       $('#info').html('<p>An error has occurred</p>');
-    },
-    success: function(data) {
+        $.ajax({
+            url: "http://dgbiler.dev5.mediastyle.dk/socket.io?",
+            async: true,
+            dataType: 'json',
+            success: function (data) {
+                  records = data;
+                  console.log(records);
+                  totalRecords = records.length;
+                  totalPages = Math.ceil(totalRecords / recPerPage);
+                  apply_pagination();
        //console.log(data);
        //var $all = $('<p>').text(data);
 
-    carTotal = data.length;
+    //carTotal = data.length;
 
-    $(".car-total").append(carTotal + " Søgeresultater");
+    //$(".car-total").append(carTotal + " Søgeresultater");
     
     //Søgning på tekst
     $(".form-control").on("keyup", function() {
     var value = $(this).val().toLowerCase();
-    $(".info *" ).filter(function() {
+    $(".col-md-4").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
 
+
   //SELECT BOX KATEGORI
  $(function() {
-
   // Read selected option
   $('#but_read').click(function(){
     var Make = $('#selUser option:selected').text();
-
-    $('#info').html("Make : " + option.selected);
-
+    $('.bil-container').html("Make : " + option.selected);
   });
 });  
 
 //bil liste
-  $.each(data, function(i, item){
+  $.each(data, function(i, displayRecords){
   $(".bil-container")
   .append("<div class='col-md-4'>"
-  + '<img src="' + item.Pictures[0] + '" height="232" width="436">' +
-  "<a href='biler.html?=index class=''><div class='info'>" + "<h5>" + item.Model + " " + item.Make + "</h5>"
-  + "<p>" + item.KmPerLiter + "Km/l" + " "+ item.Variant + "</p>" + 
-  "<div class='car-body'><p> LEASING(incl service):" + data.Mileage + "</p></div></div>"  +
-  "<div class='btn-container'>" + "<button type='button' class='btn btn-danger'>" + item.RetailPrice + " kr." + "</button>" + "</div>" +"</div>")
+  + '<img src="' + displayRecords.Pictures[0] + '" height="232" width="436">' +
+  "<a href='biler.html?=$GET{Id}'><div class='info'>" + "<h5>" + displayRecords.Model + " " + displayRecords.Make + "</h5>"
+  + "<p>" + displayRecords.KmPerLiter + "Km/l" + " "+ displayRecords.Variant + "</p>" + 
+  "<div class='car-body'><p> LEASING(incl service):" + displayRecords.Mileage + "</p></div></div>"  +
+  "<div class='btn-container'>" + "<button type='button' class='btn btn-danger'>" + displayRecords.RetailPrice + " kr." + "</button>" + "</div>" +"</div>")
         }),
         
 
@@ -77,30 +80,21 @@ $(document).ready(function(){
 
     },
    });//slut ajax
+      function apply_pagination() {
+            $pagination.twbsPagination({
+                  totalPages: totalPages,
+                  visiblePages: 6,
+                  onPageClick: function (event, page) {
+                        displayRecordsIndex = Math.max(page - 1, 0) * recPerPage;
+                        endRec = (displayRecordsIndex) + recPerPage;
+                        console.log(displayRecordsIndex + 'ssssssssss'+ endRec);
+                        displayRecords = records.slice(displayRecordsIndex, endRec);
+                        generate_table();
+                  }
+            });
+      }
 
 
 //});//slut action
 });//slut document
 
-$('#example').pagination({
-
-  ajax: function(options, refresh, $target){
-    $.ajax({
-      url: '',
-      data:{
-        current: options.current,
-        length: options.length
-      },
-      dataType: 'json'
-    }).done(function(res){
-      console.log(res.data);
-      refresh({
-        total: res.total, // optional
-        length: res.length // optional
-      });
-    }).fail(function(error){
-
-    });
-  }
-
-});
